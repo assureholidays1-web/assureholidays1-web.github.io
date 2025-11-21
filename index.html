@@ -1,49 +1,265 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ASSURE HOLIDAYS · Travel & Tours</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-    body{background:#f4f7fa;color:#333;}
-    header{background:#0077ff;padding:20px;text-align:center;color:#fff;font-size:24px;font-weight:bold;}
-    .hero{background:#fff;padding:30px;text-align:center;}
-    .hero h1{font-size:28px;margin-bottom:10px;}
-    .hero p{font-size:18px;}
-    .section{padding:20px;}
-    .section h2{font-size:22px;margin-bottom:10px;color:#0077ff;}
-    .contact-box{background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
-    footer{text-align:center;padding:10px;background:#0077ff;color:#fff;margin-top:20px;}
-    a.button{display:inline-block;background:#0077ff;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;margin-top:10px;}
-  </style>
-</head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ASSURE HOLIDAYS — Premium Tours & Travel</title>
+<meta name="description" content="Assure Holidays - curated tours, family trips, honeymoon and corporate travel from Bengaluru."/>
+<link rel="icon" href="" />
+<style>
+  :root{
+    --accent:#0b76ff;
+    --accent-2:#0057d9;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --bg:#f4f7fb;
+    --radius:12px;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:#0f1724;
+    -webkit-font-smoothing:antialiased;
+  }
 
+  /* container */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;}
+
+  /* header */
+  header.site-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:18px 0;border-radius:12px}
+  .brand{display:flex;align-items:center;gap:14px;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .logo{width:52px;height:52px;border-radius:10px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .brand h1{margin:0;font-size:18px;letter-spacing:0.6px}
+  .nav{margin-left:auto;display:none}
+  .nav a{color:rgba(255,255,255,.95);text-decoration:none;margin-left:18px;font-weight:600}
+
+  /* hero */
+  .hero{max-width:var(--maxw);margin:28px auto 18px;padding:36px 20px;background:linear-gradient(180deg,#fff,rgba(255,255,255,0.8));border-radius:12px;box-shadow:0 10px 30px rgba(15,23,36,0.06);display:flex;gap:28px;align-items:center}
+  .hero-left{flex:1}
+  .eyebrow{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;margin-bottom:12px}
+  .hero h2{font-size:28px;margin:6px 0 10px}
+  .hero p{color:var(--muted);font-size:16px;line-height:1.6;margin-bottom:16px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin-right:12px;box-shadow:0 6px 18px rgba(11,118,255,0.14)}
+  .cta-ghost{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(15,23,36,0.06);text-decoration:none;color:var(--muted);font-weight:600}
+
+  .hero-right{width:360px;min-width:200px}
+  .hero-card{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(15,23,36,0.04)}
+  .hero-card h3{margin:0 0 8px;font-size:16px}
+  .hero-card p{margin:0;color:var(--muted)}
+
+  /* sections */
+  .section{margin:28px auto;max-width:var(--maxw);padding:0 20px}
+  .section h3{color:var(--accent-2);margin-bottom:10px}
+  .grid{display:grid;gap:16px}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(15,23,36,0.04)}
+
+  .small{font-size:14px;color:var(--muted)}
+
+  /* packages */
+  .package-title{font-weight:800;margin-bottom:6px}
+  .price{font-weight:800;color:var(--accent)}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .photo{background:linear-gradient(120deg,#e6f0ff,#f8fbff);height:120px;border-radius:8px}
+
+  /* contact form */
+  .contact-wrap{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+  form.contact{flex:1;min-width:260px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 20px rgba(15,23,36,0.04)}
+  .form-row{display:flex;gap:10px;margin-bottom:10px}
+  input,select,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px}
+  textarea{min-height:120px;resize:vertical}
+  .btn-submit{background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+
+  /* footer */
+  footer.site-footer{margin-top:30px;padding:18px;text-align:center;color:#fff;background:linear-gradient(90deg,var(--accent-2),var(--accent));border-radius:10px;margin-bottom:30px}
+
+  /* responsive */
+  @media (max-width:900px){
+    .grid.cols-3{grid-template-columns:repeat(2,1fr)}
+    .hero{flex-direction:column;align-items:stretch}
+    .hero-right{width:100%}
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .nav{display:none}
+    .brand{padding:0 12px}
+  }
+  @media (max-width:520px){
+    .grid.cols-3{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .hero h2{font-size:22px}
+  }
+</style>
+</head>
 <body>
 
-<header>ASSURE HOLIDAYS</header>
-
-<div class="hero">
-  <h1>Your Trusted Travel Partner</h1>
-  <p>Best Tours · Day Trips · Group Packages · Family Travel</p>
-</div>
-
-<div class="section">
-  <h2>About Us</h2>
-  <p>We provide premium tour packages, family trips, honeymoon tours, group adventures and complete travel planning—designed to give you comfort, safety and wonderful memories.</p>
-</div>
-
-<div class="section">
-  <h2>Contact</h2>
-  <div class="contact-box">
-    <p><b>Phone / WhatsApp:</b> 9035537095</p>
-    <p><b>Location:</b> Bengaluru, India</p>
-    <a class="button" href="https://wa.me/9035537095">Chat on WhatsApp</a>
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="brand">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="logo" aria-hidden="true">AH</div>
+      <div>
+        <h1 style="margin:0">ASSURE HOLIDAYS</h1>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9)">Premium Tours & Travel</div>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<footer>© 2024 Assure Holidays · All Rights Reserved</footer>
+<!-- HERO -->
+<section class="hero" role="region" aria-label="Intro">
+  <div class="hero-left">
+    <span class="eyebrow">Trusted · Verified</span>
+    <h2>Corporate & Family Tours — Handpicked Experiences</h2>
+    <p>We craft safe, comfortable trips across India with attention to detail, local expertise and excellent service—perfect for families, corporate groups and couples.</p>
+    <a class="cta" href="#contact">Get a Quote</a>
+    <a class="cta-ghost" href="#packages">View Packages</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <h3>Quick Contact</h3>
+      <p class="small"><strong>WhatsApp:</strong> <a href="https://wa.me/9035537095">9035537095</a></p>
+      <p class="small"><strong>Email:</strong> <a href="mailto:assureholidays1@gmail.com">assureholidays1@gmail.com</a></p>
+      <p style="margin-top:10px"><a class="cta" href="https://wa.me/9035537095">Chat on WhatsApp</a></p>
+    </div>
+  </div>
+</section>
 
+<!-- Services -->
+<section id="services" class="section">
+  <div class="wrap">
+    <h3>Why travellers choose ASSURE HOLIDAYS</h3>
+    <div class="grid cols-3" style="margin-top:12px">
+      <div class="card">
+        <h4 style="margin:0 0 6px">Local experts</h4>
+        <p class="small">Deep local knowledge, vetted guides and safe logistics.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">Custom itineraries</h4>
+        <p class="small">Tailor-made plans to match preferences, budgets and group type.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">Transparent pricing</h4>
+        <p class="small">Clear rates, no hidden fees, best vendor negotiations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages -->
+<section id="packages" class="section">
+  <div class="wrap">
+    <h3>Popular Packages</h3>
+    <div class="grid cols-3" style="margin-top:14px">
+      <!-- Package 1 -->
+      <div class="card">
+        <div class="package-title">Coorg Retreat — 2D/1N</div>
+        <div class="small">Comfort stays, plantation tour, local cuisine</div>
+        <div style="margin-top:12px"><span class="price">₹4,499</span></div>
+        <p style="margin-top:12px" class="small">Includes transport from Bengaluru (AC), stays and guided tours.</p>
+      </div>
+      <!-- Package 2 -->
+      <div class="card">
+        <div class="package-title">Ooty Escape — 3D/2N</div>
+        <div class="small">Toy train experience, tea garden visit</div>
+        <div style="margin-top:12px"><span class="price">₹7,999</span></div>
+        <p style="margin-top:12px" class="small">Family friendly hotels, sightseeing and transfers included.</p>
+      </div>
+      <!-- Package 3 -->
+      <div class="card">
+        <div class="package-title">Goa Beach 4D/3N</div>
+        <div class="small">Beaches, water activities and nightlife</div>
+        <div style="margin-top:12px"><span class="price">₹9,499</span></div>
+        <p style="margin-top:12px" class="small">Hotel + transfers + select meals included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="section">
+  <div class="wrap">
+    <h3>Gallery</h3>
+    <p class="small">A few highlights — replace these placeholders with your photos later.</p>
+    <div style="margin-top:12px" class="gallery">
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section" aria-label="Contact">
+  <div class="wrap">
+    <h3>Contact & Enquiry</h3>
+    <div class="contact-wrap" style="margin-top:12px">
+      <!-- Form: Replace the form action with your Formspree endpoint -->
+      <form class="contact" action="https://formspree.io/f/myzvzoga" method="POST" aria-label="Contact form">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="tel" name="phone" placeholder="Phone / WhatsApp" required />
+        </div>
+        <div class="form-row">
+          <input type="email" name="_replyto" placeholder="Email (optional)" />
+          <select name="package">
+            <option value="">Interested in (choose)</option>
+            <option>Coorg 2D/1N</option>
+            <option>Ooty 3D/2N</option>
+            <option>Goa 4D/3N</option>
+            <option>Custom / Group Booking</option>
+          </select>
+        </div>
+        <div style="margin-bottom:10px">
+          <textarea name="message" placeholder="Tell us your travel dates and needs"></textarea>
+        </div>
+        <!-- Honeypot to avoid spam -->
+        <input type="text" name="_gotcha" style="display:none" />
+        <button class="btn-submit" type="submit">Send Enquiry</button>
+      </form>
+
+      <div style="flex-basis:320px;min-width:260px">
+        <div class="card">
+          <h4 style="margin-top:0">Office</h4>
+          <p class="small"><strong>Location:</strong> Bengaluru, India</p>
+          <p class="small"><strong>WhatsApp:</strong> <a href="https://wa.me/9035537095">9035537095</a></p>
+          <p class="small"><strong>Email:</strong> <a href="mailto:assureholidays1@gmail.com">assureholidays1@gmail.com</a></p>
+          <p style="margin-top:12px" class="small">Open: Mon–Sat, 9:30 AM — 6:00 PM</p>
+          <p style="margin-top:12px"><a class="cta" href="https://wa.me/9035537095">Chat on WhatsApp</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  © <span id="year"></span> ASSURE HOLIDAYS · All rights reserved
+</footer>
+
+<script>
+  // small helper scripts
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // optional: add simple analytics or contact success message handling later
+  // Formspree will redirect to a success message; you can also show custom messages with JS.
+</script>
 </body>
 </html>
